@@ -25,10 +25,11 @@ steps:
     Contents: 'build/**' # Pull the build directory (React)
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     
-- task: ArchiveFiles@2
+- task: CopyFilesOverSSH@0
   inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    sshEndpoint: 'apponie-ssh'
+    sourceFolder: '$(Build.ArtifactStagingDirectory)'
+    contents: 'build/**'
+    targetFolder: '/home/azuser/pipe_build'
+    readyTimeout: '20000'
+
