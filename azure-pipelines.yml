@@ -30,6 +30,6 @@ steps:
     sshEndpoint: 'apponie-ssh'
     sourceFolder: '$(Build.ArtifactStagingDirectory)'
     contents: 'build/**'
-    targetFolder: '/home/azuser/pipe_build'
+    targetFolder: '/home/azuser/app101'
     readyTimeout: '20000'
 
