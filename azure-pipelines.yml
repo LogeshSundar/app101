@@ -25,11 +25,4 @@ steps:
     Contents: 'build/**' # Pull the build directory (React)
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: 'apponie-ssh'
-    sourceFolder: '$(Build.ArtifactStagingDirectory)'
-    contents: 'build/**'
-    targetFolder: '/home/azuser/app101'
-    readyTimeout: '20000'
 
