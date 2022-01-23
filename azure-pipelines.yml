@@ -24,10 +24,10 @@ steps:
   inputs:
     Contents: 'build/**' # Pull the build directory (React)
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'appone_build'
-    publishLocation: 'pipeline'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'appone_build'
+    publishLocation: 'Container'
+    StoreAsTar: true
